@@ -81,7 +81,7 @@ export const data = [
   },
   {
     id: 7,
-    service: "DMP",
+    service: "Exchange",
     invoice_id: 567,
     date: randomDate(
       new Date(today),
@@ -136,7 +136,7 @@ export const data = [
   },
   {
     id: 12,
-    service: "DMP",
+    service: "Exchange",
     invoice_id: 572,
     date: randomDate(
       new Date(today),
@@ -147,7 +147,7 @@ export const data = [
   },
   {
     id: 13,
-    service: "DMP",
+    service: "Verification",
     invoice_id: 573,
     date: randomDate(
       new Date(today),
@@ -158,7 +158,7 @@ export const data = [
   },
   {
     id: 14,
-    service: "DMP",
+    service: "Verification",
     invoice_id: 574,
     date: randomDate(
       new Date(today),
@@ -191,7 +191,7 @@ export const data = [
   },
   {
     id: 17,
-    service: "SSP",
+    service: "Verification",
     invoice_id: 577,
     date: randomDate(
       new Date(today),
@@ -224,7 +224,7 @@ export const data = [
   },
   {
     id: 20,
-    service: "SSP",
+    service: "Exchange",
     invoice_id: 580,
     date: randomDate(
       new Date(today),
@@ -356,7 +356,7 @@ export const data = [
   },
   {
     id: 32,
-    service: "Verification",
+    service: "DSP",
     invoice_id: 732,
     date: randomDate(
       new Date(today),
@@ -389,7 +389,7 @@ export const data = [
   },
   {
     id: 35,
-    service: "Verification",
+    service: "SSP",
     invoice_id: 735,
     date: randomDate(
       new Date(today),
