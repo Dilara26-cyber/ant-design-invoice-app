@@ -2,9 +2,13 @@ const today = new Date();
 const endDay = new Date();
 
 function randomDate(start, end) {
-  return new Date(
+  let date = new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
+    let day = date.getDate();
+    let month = date.toLocaleString('en-us', { month: 'long' })
+    let year = date.getFullYear();
+    return (`${month} ${day}, ${year}`) 
 }
 
 function randomAmount(min, max) {
