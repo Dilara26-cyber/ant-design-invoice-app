@@ -21,6 +21,7 @@ function randomAmount(min, max) {
   const number = Math.floor(Math.random() * (max - min) + min) / 10;
   return number.toFixed(2);
 }
+
 //Data 
 export const data = [
   {
@@ -505,6 +506,7 @@ export const data = [
   },
 ];
 
+//Columns for table, sorting functionality and render logic for some columns
 export const columns = [
   {
     title: "Servis Adı",
