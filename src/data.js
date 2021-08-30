@@ -7,10 +7,10 @@ function randomDate(start, end) {
   let date = new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
-    let day = date.getDate();
-    let month = date.toLocaleString('en-us', { month: 'long' })
-    let year = date.getFullYear();
-    return (`${month} ${day}, ${year}`) 
+  let day = date.getDate();
+  let month = date.toLocaleString("en-us", { month: "long" });
+  let year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
 }
 
 function randomAmount(min, max) {
@@ -21,6 +21,7 @@ function randomAmount(min, max) {
 export const data = [
   {
     id: 1,
+    key: "1",
     service: "DMP",
     invoice_id: 561,
     date: randomDate(
@@ -32,6 +33,7 @@ export const data = [
   },
   {
     id: 2,
+    key: "2",
     service: "DMP",
     invoice_id: 562,
     date: randomDate(
@@ -43,6 +45,7 @@ export const data = [
   },
   {
     id: 3,
+    key: "3",
     service: "DMP",
     invoice_id: 563,
     date: randomDate(
@@ -54,6 +57,7 @@ export const data = [
   },
   {
     id: 4,
+    key: "4",
     service: "SSP",
     invoice_id: 564,
     date: randomDate(
@@ -65,6 +69,7 @@ export const data = [
   },
   {
     id: 5,
+    key: "5",
     service: "SSP",
     invoice_id: 565,
     date: randomDate(
@@ -76,6 +81,7 @@ export const data = [
   },
   {
     id: 6,
+    key: "6",
     service: "SSP",
     invoice_id: 566,
     date: randomDate(
@@ -87,6 +93,7 @@ export const data = [
   },
   {
     id: 7,
+    key: "7",
     service: "Exchange",
     invoice_id: 567,
     date: randomDate(
@@ -98,6 +105,7 @@ export const data = [
   },
   {
     id: 8,
+    key: "8",
     service: "DMP",
     invoice_id: 568,
     date: randomDate(
@@ -109,6 +117,7 @@ export const data = [
   },
   {
     id: 9,
+    key: "9",
     service: "DMP",
     invoice_id: 569,
     date: randomDate(
@@ -120,6 +129,7 @@ export const data = [
   },
   {
     id: 10,
+    key: "10",
     service: "DMP",
     invoice_id: 570,
     date: randomDate(
@@ -131,6 +141,7 @@ export const data = [
   },
   {
     id: 11,
+    key: "11",
     service: "DMP",
     invoice_id: 571,
     date: randomDate(
@@ -142,6 +153,7 @@ export const data = [
   },
   {
     id: 12,
+    key: "12",
     service: "Exchange",
     invoice_id: 572,
     date: randomDate(
@@ -153,6 +165,7 @@ export const data = [
   },
   {
     id: 13,
+    key: "13",
     service: "Verification",
     invoice_id: 573,
     date: randomDate(
@@ -164,6 +177,7 @@ export const data = [
   },
   {
     id: 14,
+    key: "14",
     service: "Verification",
     invoice_id: 574,
     date: randomDate(
@@ -175,6 +189,7 @@ export const data = [
   },
   {
     id: 15,
+    key: "15",
     service: "DMP",
     invoice_id: 575,
     date: randomDate(
@@ -186,6 +201,7 @@ export const data = [
   },
   {
     id: 16,
+    key: "16",
     service: "SSP",
     invoice_id: 576,
     date: randomDate(
@@ -197,6 +213,7 @@ export const data = [
   },
   {
     id: 17,
+    key: "17",
     service: "Verification",
     invoice_id: 577,
     date: randomDate(
@@ -208,6 +225,7 @@ export const data = [
   },
   {
     id: 18,
+    key: "18",
     service: "SSP",
     invoice_id: 578,
     date: randomDate(
@@ -219,6 +237,7 @@ export const data = [
   },
   {
     id: 19,
+    key: "19",
     service: "SSP",
     invoice_id: 579,
     date: randomDate(
@@ -230,6 +249,7 @@ export const data = [
   },
   {
     id: 20,
+    key: "20",
     service: "Exchange",
     invoice_id: 580,
     date: randomDate(
@@ -241,6 +261,7 @@ export const data = [
   },
   {
     id: 21,
+    key: "21",
     service: "SSP",
     invoice_id: 581,
     date: randomDate(
@@ -252,6 +273,7 @@ export const data = [
   },
   {
     id: 22,
+    key: "22",
     service: "DSP",
     invoice_id: 582,
     date: randomDate(
@@ -263,6 +285,7 @@ export const data = [
   },
   {
     id: 23,
+    key: "23",
     service: "SSP",
     invoice_id: 583,
     date: randomDate(
@@ -274,6 +297,7 @@ export const data = [
   },
   {
     id: 24,
+    key: "24",
     service: "DSP",
     invoice_id: 624,
     date: randomDate(
@@ -285,6 +309,7 @@ export const data = [
   },
   {
     id: 25,
+    key: "25",
     service: "DSP",
     invoice_id: 625,
     date: randomDate(
@@ -296,6 +321,7 @@ export const data = [
   },
   {
     id: 26,
+    key: "26",
     service: "DSP",
     invoice_id: 626,
     date: randomDate(
@@ -307,6 +333,7 @@ export const data = [
   },
   {
     id: 27,
+    key: "27",
     service: "DSP",
     invoice_id: 627,
     date: randomDate(
@@ -318,6 +345,7 @@ export const data = [
   },
   {
     id: 28,
+    key: "28",
     service: "Exchange",
     invoice_id: 728,
     date: randomDate(
@@ -329,6 +357,7 @@ export const data = [
   },
   {
     id: 29,
+    key: "29",
     service: "Exchange",
     invoice_id: 729,
     date: randomDate(
@@ -340,6 +369,7 @@ export const data = [
   },
   {
     id: 30,
+    key: "30",
     service: "Exchange",
     invoice_id: 730,
     date: randomDate(
@@ -351,6 +381,7 @@ export const data = [
   },
   {
     id: 31,
+    key: "31",
     service: "Verification",
     invoice_id: 731,
     date: randomDate(
@@ -362,6 +393,7 @@ export const data = [
   },
   {
     id: 32,
+    key: "32",
     service: "DSP",
     invoice_id: 732,
     date: randomDate(
@@ -373,6 +405,7 @@ export const data = [
   },
   {
     id: 33,
+    key: "33",
     service: "Verification",
     invoice_id: 733,
     date: randomDate(
@@ -384,6 +417,7 @@ export const data = [
   },
   {
     id: 34,
+    key: "34",
     service: "Verification",
     invoice_id: 734,
     date: randomDate(
@@ -395,6 +429,7 @@ export const data = [
   },
   {
     id: 35,
+    key: "35",
     service: "SSP",
     invoice_id: 735,
     date: randomDate(
@@ -406,6 +441,7 @@ export const data = [
   },
   {
     id: 36,
+    key: "36",
     service: "Exchange",
     invoice_id: 836,
     date: randomDate(
@@ -417,6 +453,7 @@ export const data = [
   },
   {
     id: 37,
+    key: "37",
     service: "Exchange",
     invoice_id: 837,
     date: randomDate(
@@ -428,6 +465,7 @@ export const data = [
   },
   {
     id: 38,
+    key: "38",
     service: "Verification",
     invoice_id: 838,
     date: randomDate(
@@ -439,6 +477,7 @@ export const data = [
   },
   {
     id: 39,
+    key: "39",
     service: "DSP",
     invoice_id: 839,
     date: randomDate(
@@ -450,6 +489,7 @@ export const data = [
   },
   {
     id: 40,
+    key: "40",
     service: "DMP",
     invoice_id: 840,
     date: randomDate(
@@ -462,28 +502,36 @@ export const data = [
 ];
 
 export const columns = [
-    {
-      title: "Servis Adı",
-      dataIndex: "service",
+  {
+    title: "Servis Adı",
+    dataIndex: "service",
+  },
+  {
+    title: "Fatura Numarası",
+    dataIndex: "invoice_id",
+  },
+  {
+    title: "Tarih",
+    dataIndex: "date",
+  },
+  {
+    title: "Tutar",
+    dataIndex: "amount",
+  },
+  {
+    title: "Durum",
+    dataIndex: "status",
+    render: (tag) => {
+      const color = tag.includes("Odendi")
+        ? "green"
+        : tag.includes("Odenmedi")
+        ? "red"
+        : "orange";
+      return (
+        <Tag color={color} key={tag}>
+          {tag}
+        </Tag>
+      );
     },
-    {
-      title: "Fatura Numarası",
-      dataIndex: "invoice_id",
-    },
-    {
-      title: "Tarih",
-      dataIndex: "date",
-    },
-    {
-      title: "Tutar",
-      dataIndex: "amount",
-    },
-    {
-      title: "Durum",
-      dataIndex: "status",
-      render:(tag) => {
-          const color = tag.includes("Odendi") ? "green" : tag.includes("Odenmedi") ? "red" : "orange"
-        return <Tag color={color} key={tag}>{tag}</Tag>
-        }
-    },
-  ];
+  },
+];
