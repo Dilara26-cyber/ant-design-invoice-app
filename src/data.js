@@ -458,3 +458,26 @@ export const data = [
     status: "Odendi",
   },
 ];
+
+export const columns = [
+    {
+      title: "Servis Adı",
+      dataIndex: "service",
+    },
+    {
+      title: "Fatura Numarası",
+      dataIndex: "invoice_id",
+    },
+    {
+      title: "Tarih",
+      dataIndex: "date",
+    },
+    {
+      title: "Tutar",
+      dataIndex: "amount",
+    },
+    {
+      title: "Durum",
+      dataIndex: "status",
+    },
+  ];
