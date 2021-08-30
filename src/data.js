@@ -1,3 +1,5 @@
+import { Tag } from "antd";
+
 const today = new Date();
 const endDay = new Date();
 
@@ -479,5 +481,9 @@ export const columns = [
     {
       title: "Durum",
       dataIndex: "status",
+      render:(tag) => {
+          const color = tag.includes("Odendi") ? "green" : tag.includes("Odenmedi") ? "red" : "orange"
+        return <Tag color={color} key={tag}>{tag}</Tag>
+        }
     },
   ];
