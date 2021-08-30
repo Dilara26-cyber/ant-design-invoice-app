@@ -1,4 +1,5 @@
-import { Tag } from "antd";
+import { Tag, Typography } from "antd";
+const { Text, Link } = Typography;
 
 const today = new Date();
 const endDay = new Date();
@@ -505,18 +506,23 @@ export const columns = [
   {
     title: "Servis Adı",
     dataIndex: "service",
+    sorter: (a, b) => a.service.length - b.service.length,
   },
   {
     title: "Fatura Numarası",
     dataIndex: "invoice_id",
+    sorter: (a, b) => a.invoice_id - b.invoice_id,
   },
   {
     title: "Tarih",
     dataIndex: "date",
+    sorter: (a, b) => Date.parse(a.date) - Date.parse(b.date),
   },
   {
     title: "Tutar",
     dataIndex: "amount",
+    render: (amount) => <Text>{`$${amount}`}</Text>,
+    sorter: (a, b) => a.amount - b.amount,
   },
   {
     title: "Durum",
@@ -533,5 +539,11 @@ export const columns = [
         </Tag>
       );
     },
+    sorter: (a, b) => a.status.length - b.status.length,
+  },
+  {
+    title: "",
+    dataIndex: "status",
+    render: (link) => <Link>Goster</Link>,
   },
 ];

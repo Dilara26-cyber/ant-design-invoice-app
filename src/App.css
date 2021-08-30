@@ -31,3 +31,7 @@ h3.ant-typography,
 main.ant-layout-content, .ant-layout-header.layout-header{
     padding: 0 40px;
 }
+
+.ant-table-cell::before{
+    display: none;
+}

@@ -5,7 +5,7 @@ const TableComponent = () => {
 
   return (
     <>
-      <Table columns={columns} dataSource={data} rowSelection={true} />
+      <Table columns={columns} dataSource={data} rowSelection={true} pagination={{pageSize: 8}}/>
     </>
   );
 };
