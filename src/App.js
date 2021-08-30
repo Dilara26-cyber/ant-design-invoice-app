@@ -1,9 +1,12 @@
 import './App.css';
+import Main from './components/Main';
 import {data} from "./data"
+
 function App() {
   console.log(data)
   return (
     <div className="App">
+    <Main/>
     </div>
   );
 }
