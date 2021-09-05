@@ -19,9 +19,9 @@ import {
   equalityData,
   valueData,
 } from "../data";
+import "antd/dist/antd.css";
 
-
-const TableComponent = () => {
+const TableComponent = ({theme}) => {
   // Ant Design Deconstruction
   const { Option } = Select;
   const { Text } = Typography;
@@ -177,7 +177,8 @@ const TableComponent = () => {
       </Row>
       {show && (
         <Space
-          style={{ padding: "1em 0.5em", background: "white", width: "100%" }}
+          style={{ padding: "1em 0.5em",width: "100%" }}
+          className={theme === "light" ? "light space" : "dark space"}
         >
           <Tag
             closable

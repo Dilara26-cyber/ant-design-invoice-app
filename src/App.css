@@ -5,6 +5,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+main{
+  overflow: auto;
+}
 .ant-layout-header.layout-header {
   display: flex;
   align-items: center;
@@ -17,7 +20,7 @@ h3.ant-typography,
 }
 
 .ant-layout-header.layout-header.light,
-.ant-layout-sider.light {
+.ant-layout-sider.light,.light.space {
   background: white;
 }
 .ant-layout.ant-layout-has-sider {

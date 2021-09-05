@@ -81,7 +81,7 @@ const Main = () => {
             <Switch onChange={toggleTheme}></Switch>
           </Header>
           <Content>
-            <TableComponent />
+            <TableComponent theme={theme}/>
           </Content>
         </Layout>
       </Layout>
