@@ -552,3 +552,4 @@ export const columns = [
     render: (link) => <Link>Goster</Link>,
   },
 ];
+

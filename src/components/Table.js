@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { Table, Space, Input, Button, Row, Col } from "antd";
+import { Table, Space, Input, Button, Row, Col, Popover } from "antd";
 import { FilterOutlined, DownloadOutlined } from "@ant-design/icons";
-import { data, columns } from "../data";
+import { data, columns, content } from "../data";
 import "antd/dist/antd.css";
 const TableComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleChange = ({ target }) => setSearchTerm(target.value);
-  console.log(data.filter((d) => d.service.includes("a")));
+  const content = (
+    <div>
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  );
   return (
     <>
-
         <Row justify="space-between">
           <Col >
             <Input.Search
@@ -19,7 +23,9 @@ const TableComponent = () => {
             />
           </Col>
           <Col>
+          <Popover content={content} placement="left" title="Filtre Ekle">
             <Button icon={<FilterOutlined />}></Button>
+          </Popover>
             <Button icon={<DownloadOutlined />} style={{marginLeft: "1em"}}/>
           </Col>
         </Row>
