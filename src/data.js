@@ -548,7 +548,7 @@ export const columns = [
   },
   {
     title: "",
-    dataIndex: "status",
+    dataIndex: "print",
     render: (link) => <Link>Goster</Link>,
   },
 ];
