@@ -553,3 +553,31 @@ export const columns = [
   },
 ];
 
+//Filter Options
+export const filterSelection = ["Servis", "Tarih", "Tutar", "Durum"];
+export const equalityData = {
+  Servis: ["Eşittir", "Eşit Değildir"],
+  Tarih: [
+    "Eşittir",
+    "Eşit Değildir",
+    "Büyüktür",
+    "Küçüktür",
+    "Büyük veya Eşittir",
+    "Küçük veya Eşittir",
+  ],
+  Tutar: [
+    "Eşittir",
+    "Eşit Değildir",
+    "Büyüktür",
+    "Küçüktür",
+    "Büyük veya Eşittir",
+    "Küçük veya Eşittir",
+  ],
+  Durum: ["Eşittir", "Eşit Değildir"],
+};
+export const valueData = {
+  Servis: ["DSP", "DMP", "Exchange", "SSP", "Verification"],
+  Tarih: [...data.map((d) => d.date)],
+  Tutar: [100, 200, 300, 400, 500],
+  Durum: ["Odendi", "Odenmedi", "Bekliyor"],
+};

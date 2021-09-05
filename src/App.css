@@ -8,14 +8,16 @@
 .ant-layout-header.layout-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100px;
 }
 h3.ant-typography,
 .ant-typography h3 {
   margin-bottom: 0 !important;
 }
-.ant-layout-header.layout-header,
-.ant-layout-sider-children {
+
+.ant-layout-header.layout-header.light,
+.ant-layout-sider.light {
   background: white;
 }
 .ant-layout.ant-layout-has-sider {
@@ -25,9 +27,7 @@ h3.ant-typography,
 .ant-menu-item:first-of-type{
     margin-top: 24px !important;
 }
-.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected svg{
-    color: rgba(0, 0, 0, 0.85);
-}
+
 main.ant-layout-content, .ant-layout-header.layout-header{
     padding: 0 40px;
 }

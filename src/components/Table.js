@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Table,
   Select,
@@ -9,95 +9,105 @@ import {
   Popover,
   Space,
   Tag,
+  Typography,
 } from "antd";
 import { FilterOutlined, DownloadOutlined } from "@ant-design/icons";
-import { data, columns } from "../data";
-import "antd/dist/antd.css";
+import {
+  data,
+  columns,
+  filterSelection,
+  equalityData,
+  valueData,
+} from "../data";
 
-const filterSelection = ["Servis", "Tarih", "Tutar", "Durum"];
-const equalityData = {
-  Servis: ["Eşittir", "Eşit Değildir"],
-  Tarih: [
-    "Eşittir",
-    "Eşit Değildir",
-    "Büyüktür",
-    "Küçüktür",
-    "Büyük veya Eşittir",
-    "Küçük veya Eşittir",
-  ],
-  Tutar: [
-    "Eşittir",
-    "Eşit Değildir",
-    "Büyüktür",
-    "Küçüktür",
-    "Büyük veya Eşittir",
-    "Küçük veya Eşittir",
-  ],
-  Durum: ["Eşittir", "Eşit Değildir"],
-};
-const valueData = {
-  Servis: ["DSP", "DMP", "Exchange", "SSP", "Verification"],
-  Tarih: [...data.map((d) => d.date)],
-  Tutar: [100, 200, 300, 400, 500],
-  Durum: ["Odendi", "Odenmedi", "Bekliyor"],
-};
+
 const TableComponent = () => {
+  // Ant Design Deconstruction
   const { Option } = Select;
+  const { Text } = Typography;
   const [searchTerm, setSearchTerm] = useState("");
   const [show, setShow] = useState(false);
-  const handleChange = ({ target }) => setSearchTerm(target.value);
+  //Change select options based on first selected option
   const [selection, setSelection] = useState(equalityData[filterSelection[0]]);
   const [secondSelection, setSecondSelection] = useState(
     equalityData[filterSelection[0]][0]
   );
   const [lastly, setLastly] = useState(valueData[filterSelection[0]]);
   const [last, setLast] = useState(valueData[filterSelection[0]][0]);
-  const [renderValue, setRenderValue] = useState();
-  const handleProvinceChange = (value) => {
+  const [renderValue, setRenderValue] = useState("Seçiniz");
+  //Set filter text coming from search input
+  const handleChange = ({ target }) => setSearchTerm(target.value);
+  //Set selected filter with select option change
+  const handleSelectChange = (value) => {
     setSelection(equalityData[value]);
     setSecondSelection(equalityData[value][0]);
     setLastly(valueData[value]);
     setLast(valueData[value][0]);
     setRenderValue(value);
   };
-
   const onSecondChange = (value) => setSecondSelection(value);
   const onLastChange = (value) => setLast(value);
-  const filteredData =
-  searchTerm === "" ? 
-    secondSelection === "Eşittir"
-      ? data.filter((d) => Object.values(d).includes(last))
+
+  //Close event for tag
+  const onClose = () => {
+    setShow(false);
+    setRenderValue("Seçiniz")
+  };
+
+  //Filter data according to state of select and search input, useEffect works as componentDidUpdate
+  const [filteredData, setFilteredData] = useState([]);
+  useEffect(() => {
+    searchTerm.length > 0 && renderValue === "Seçiniz"
+      ? setFilteredData(
+          data.filter((d) => d.service.toLowerCase().includes(searchTerm))
+        )
+      : secondSelection === "Eşittir"
+      ? setFilteredData(data.filter((d) => Object.values(d).includes(last)))
       : secondSelection === "Eşit Değildir"
-      ? data.filter((d) => Object.values(d).indexOf(last) === -1)
+      ? setFilteredData(
+          data.filter((d) => Object.values(d).indexOf(last) === -1)
+        )
       : secondSelection === "Büyüktür" && renderValue === "Tarih"
-      ? data.filter((d) => Date.parse(d.date) > Date.parse(last))
+      ? setFilteredData(
+          data.filter((d) => Date.parse(d.date) > Date.parse(last))
+        )
       : secondSelection === "Küçüktür" && renderValue === "Tarih"
-      ? data.filter((d) => Date.parse(d.date) < Date.parse(last))
+      ? setFilteredData(
+          data.filter((d) => Date.parse(d.date) < Date.parse(last))
+        )
       : secondSelection === "Büyük veya Eşittir" && renderValue === "Tarih"
-      ? data.filter((d) => Date.parse(d.date) >= Date.parse(last))
+      ? setFilteredData(
+          data.filter((d) => Date.parse(d.date) >= Date.parse(last))
+        )
       : secondSelection === "Küçük veya Eşittir" && renderValue === "Tarih"
-      ? data.filter((d) => Date.parse(d.date) <= Date.parse(last))
+      ? setFilteredData(
+          data.filter((d) => Date.parse(d.date) <= Date.parse(last))
+        )
       : secondSelection === "Küçük veya Eşittir" && renderValue === "Tutar"
-      ? data.filter((d) => d.amount <= last)
+      ? setFilteredData(data.filter((d) => d.amount <= last))
       : secondSelection === "Büyük veya Eşittir" && renderValue === "Tutar"
-      ? data.filter((d) => d.amount >= last)
+      ? setFilteredData(data.filter((d) => d.amount >= last))
       : secondSelection === "Büyüktür" && renderValue === "Tutar"
-      ? data.filter((d) => d.amount > last)
+      ? setFilteredData(data.filter((d) => d.amount > last))
       : secondSelection === "Küçüktür" && renderValue === "Tutar"
-      ? data.filter((d) => d.amount < last)
-      : data.filter((d) => d.service.toLowerCase().includes(searchTerm)) : data
-console.log(searchTerm)
+      ? setFilteredData(data.filter((d) => d.amount < last))
+      : setFilteredData(data);
+  }, [searchTerm, last, secondSelection, renderValue]);
+
+  //Content of Popover
   const content = (
     <>
+      <Text strong>Başlık</Text>
       <Select
-        defaultValue={filterSelection[0]}
+        defaultValue={renderValue}
         style={{ width: 100, marginRight: 10 }}
-        onChange={handleProvinceChange}
+        onChange={handleSelectChange}
       >
         {filterSelection.map((select) => (
           <Option key={select}>{select}</Option>
         ))}
       </Select>
+      <Text strong>Koşul</Text>
       <Select
         style={{ width: 100, marginRight: 10 }}
         value={secondSelection}
@@ -107,18 +117,28 @@ console.log(searchTerm)
           <Option key={select}>{select}</Option>
         ))}
       </Select>
+      <Text strong>Değer</Text>
       <Select style={{ width: 100 }} value={last} onChange={onLastChange}>
         {lastly.map((select) => (
           <Option key={select}>{select}</Option>
         ))}
       </Select>
-      <Row justify="end" style={{marginTop: 10}}>
-         <Button onClick={() => setShow(false)} size={"small"} style={{marginRight:10}}>İptal</Button>
-      <Button type="primary" onClick={() => setShow(true)} size={"small"}>Ekle</Button>
+      <Row justify="end" style={{ marginTop: 10 }}>
+        <Button
+          onClick={() => setShow(false)}
+          size={"small"}
+          style={{ marginRight: 10 }}
+        >
+          İptal
+        </Button>
+        <Button type="primary" onClick={() => setShow(true)} size={"small"}>
+          Ekle
+        </Button>
       </Row>
-     
     </>
   );
+
+  //For Tag Text
   const equalitySign =
     secondSelection === "Eşittir"
       ? "="
@@ -148,7 +168,7 @@ console.log(searchTerm)
             content={content}
             placement="left"
             title="Filtre Ekle"
-            trigger="hover"
+            trigger="click"
           >
             <Button icon={<FilterOutlined />}></Button>
           </Popover>
@@ -159,12 +179,15 @@ console.log(searchTerm)
         <Space
           style={{ padding: "1em 0.5em", background: "white", width: "100%" }}
         >
-          <Tag closable onClose={(e) => e.preventDefault()}>{`${renderValue} ${equalitySign} ${last}`}</Tag>
+          <Tag
+            closable
+            onClose={onClose}
+          >{`${renderValue} ${equalitySign} ${last}`}</Tag>
         </Space>
       )}
       <Table
         columns={columns}
-        dataSource={filteredData}
+        dataSource={show === false && searchTerm === "" ? data : filteredData}
         rowSelection={true}
         pagination={{ pageSize: 8 }}
       />
