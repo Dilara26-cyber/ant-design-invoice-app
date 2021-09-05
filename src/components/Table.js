@@ -97,6 +97,8 @@ const TableComponent = ({theme}) => {
   //Content of Popover
   const content = (
     <>
+    <Row>
+    <Col className="flexed-col">
       <Text strong>Başlık</Text>
       <Select
         defaultValue={renderValue}
@@ -107,7 +109,9 @@ const TableComponent = ({theme}) => {
           <Option key={select}>{select}</Option>
         ))}
       </Select>
-      <Text strong>Koşul</Text>
+    </Col>
+      <Col className="flexed-col">
+        <Text strong>Koşul</Text>
       <Select
         style={{ width: 100, marginRight: 10 }}
         value={secondSelection}
@@ -117,12 +121,17 @@ const TableComponent = ({theme}) => {
           <Option key={select}>{select}</Option>
         ))}
       </Select>
-      <Text strong>Değer</Text>
+      </Col>
+      <Col className="flexed-col">
+        <Text strong>Değer</Text>
       <Select style={{ width: 100 }} value={last} onChange={onLastChange}>
         {lastly.map((select) => (
           <Option key={select}>{select}</Option>
         ))}
       </Select>
+      </Col>
+        
+    </Row>
       <Row justify="end" style={{ marginTop: 10 }}>
         <Button
           onClick={() => setShow(false)}

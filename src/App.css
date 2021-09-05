@@ -38,3 +38,9 @@ main.ant-layout-content, .ant-layout-header.layout-header{
 .ant-table-cell::before{
     display: none;
 }
+
+.flexed-col{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
