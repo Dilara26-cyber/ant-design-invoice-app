@@ -31,8 +31,9 @@ const Main = () => {
   const getStylesheetLink = () =>
     document.querySelector("#antd-stylesheet") || createStylesheetLink();
 
+    const userPreferredTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark";
   //If a theme is set to local storage, use it. If local storage is empty, use the preferred theme.
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || userPreferredTheme);
   const setTheTheme = (theme) => {
     localStorage.setItem("theme", theme);
     getStylesheetLink().href = stylesheets[theme];

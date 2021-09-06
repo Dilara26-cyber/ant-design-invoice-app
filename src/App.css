@@ -23,6 +23,9 @@ h3.ant-typography,
 .ant-layout-sider.light,.light.space {
   background: white;
 }
+.ant-layout-sider.dark{
+  background: #141414;
+}
 .ant-layout.ant-layout-has-sider {
   height: 100vh;
 }
