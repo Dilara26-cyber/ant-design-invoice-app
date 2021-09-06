@@ -5,3 +5,5 @@ Input search is also working.
 
 Nowadays no one can imagine a dashboard without theme switching. I added a switch button for themes. This data is stored on local storage, but if there is no data, the user's preferred theme will be used.
 This project was coded in approximately two days. 
+
+Live URL: https://datatable-ant-design.netlify.app/
